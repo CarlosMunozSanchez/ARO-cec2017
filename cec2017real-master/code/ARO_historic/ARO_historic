@@ -1,0 +1,7 @@
+ARO Historic
+
+version				mutation							crossover
+1						norm_dist 0 33.3				50% combination
+2						same								blx-alpha
+
+

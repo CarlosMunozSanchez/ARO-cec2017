@@ -11,8 +11,16 @@ extern "C" {
 #include <iostream>
 #include <vector>
 #include <random>
+#include <cmath>
+
+// From https://github.com/effolkronium/random
+#include "random.hpp"
 
 using namespace std;
+
+// get base random alias which is auto seeded and has static API and internal state
+// it is not threads secure, you can also use ::random_thread_local
+using Random = effolkronium::random_static;
 
 const double upperBound = 100.0, lowerBound = -100.0;
 
@@ -40,14 +48,32 @@ void Mutate(vector<double> & v){
 	}
 }
 
-void Combine(const vector<double> & parent, vector<double> larva){
+//Crossover as random selection from parent and larva
+/*void Combine(const vector<double> & parent, vector<double> & larva){
 	// larva's components are randomly taken from parent with 50% probability
 	for(int i = 0; i < dim; i++){
-		if( dis(gen) > 50.0 ){
+		if( Random::get<bool>() ){
 			larva[i] = parent[i];
 		}
 	}
-} 
+}
+*/
+
+//Crossover as genetic crossover operator BLX-alpha
+void Combine(const vector<double> & parent, vector<double> & larva){
+	double alpha = 0.3;
+	
+	for(int i = 0; i < dim; i++){
+		double min = larva[i] < parent[i] ? larva[i] : parent[i];
+		double max = larva[i] > parent[i] ? larva[i] : parent[i];
+		double interval = max - min;
+		
+		larva[i] = Random::get(min - alpha*interval, max + alpha*interval);
+	}
+		
+}
+
+ 
 
 vector<double> Reproduce(const vector<double> & parent){
 	vector<double> bud = parent;
