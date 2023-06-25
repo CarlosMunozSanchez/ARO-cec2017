@@ -59,8 +59,8 @@ void Mutate(vector<double> & v){
 }
 */
 
-//Crossover as genetic crossover operator BLX-alpha
-void Combine(const vector<double> & parent, vector<double> & larva){
+//Crossover as BLX-alpha crossover operator
+/*void Combine(const vector<double> & parent, vector<double> & larva){
 	double alpha = 0.3;
 	
 	for(int i = 0; i < dim; i++){
@@ -71,9 +71,18 @@ void Combine(const vector<double> & parent, vector<double> & larva){
 		larva[i] = Random::get(min - alpha*interval, max + alpha*interval);
 	}
 		
+}*/
+
+//Crossover as random arithmetic crossover operator
+void Combine(const vector<double> & parent, vector<double> & larva){
+	double alpha = Random::get(0.0, 1.0);
+	
+	for(int i = 0; i < dim; i++){
+		larva[i] = parent[i] * alpha + (1-alpha)*larva[i];
+	}
+		
 }
 
- 
 
 vector<double> Reproduce(const vector<double> & parent){
 	vector<double> bud = parent;
