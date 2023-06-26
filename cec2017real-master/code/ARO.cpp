@@ -35,7 +35,7 @@ std::mt19937 gen(seed);
 
 
 // Mutation as the the sum of values following a normal distribution
-/*
+
 void Mutate(vector<double> & v){
 	// a random number following a normal distribution is added to every component
 	for(int i = 0; i < dim; i++){
@@ -50,10 +50,11 @@ void Mutate(vector<double> & v){
 		}
 	}
 }
-*/
+
 
 
 // Mutation with chaotic sequences for exploration and exploitation
+/*
 void Mutate(vector<double> & v){
 
 	// variable for chaotic sequence
@@ -92,7 +93,7 @@ void Mutate(vector<double> & v){
 	
 	iter = (iter + 1) % (10000 * dim);
 }
-
+*/
 
 //Crossover as random selection from parent and larva
 /*void Combine(const vector<double> & parent, vector<double> & larva){
@@ -120,7 +121,7 @@ void Mutate(vector<double> & v){
 }*/
 
 //Crossover as random arithmetic crossover operator
-/*void Combine(const vector<double> & parent, vector<double> & larva){
+void Combine(const vector<double> & parent, vector<double> & larva){
 	double alpha = Random::get(0.0, 1.0);
 	
 	for(int i = 0; i < dim; i++){
@@ -128,9 +129,10 @@ void Mutate(vector<double> & v){
 	}
 		
 }
-*/
+
 
 //Crossover as chaotic aritmetic operator
+/*
 void Combine(const vector<double> & parent, vector<double> & larva){
 	//variable for chaotic sequence
 	static double alpha = Random::get(-1.0, 1.0);
@@ -140,7 +142,7 @@ void Combine(const vector<double> & parent, vector<double> & larva){
 		larva[i] = parent[i] * alpha + (1-alpha)*larva[i];
 	}
 		
-}
+}*/
 
 
 pair<vector<double>, vector<double>> Reproduce(const vector<double> & parent){

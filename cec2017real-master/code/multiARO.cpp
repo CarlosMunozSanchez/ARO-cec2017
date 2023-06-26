@@ -165,7 +165,7 @@ pair<vector<double>, vector<double>> Reproduce(const vector<double> & parent){
 int main() {
 
 	for (int funcid = 1; funcid <= 30; funcid++) {
-		cec17_init("ARO", funcid, dim);
+		cec17_init("multiARO", funcid, dim);
 		int evals = 0;
 		
 		//cerr <<"Warning: output by console, if you want to create the output file you have to comment cec17_print_output()" <<endl;

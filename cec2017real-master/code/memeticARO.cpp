@@ -36,7 +36,7 @@ std::mt19937 gen(seed);
 
 
 // Mutation as the the sum of values following a normal distribution
-
+/*
 void Mutate(vector<double> & v){
 	// a random number following a normal distribution is added to every component
 	for(int i = 0; i < dim; i++){
@@ -51,11 +51,11 @@ void Mutate(vector<double> & v){
 		}
 	}
 }
-
+*/
 
 
 // Mutation with chaotic sequences for exploration and exploitation
-/*
+
 void Mutate(vector<double> & v){
 
 	// variable for chaotic sequence
@@ -94,7 +94,7 @@ void Mutate(vector<double> & v){
 	
 	iter = (iter + 1) % (10000 * dim);
 }
-*/
+
 
 //Crossover as random selection from parent and larva
 /*void Combine(const vector<double> & parent, vector<double> & larva){
@@ -180,7 +180,7 @@ pair<vector<double>, vector<double>> Reproduce(const vector<double> & parent){
 int main() {
 
 	for (int funcid = 1; funcid <= 30; funcid++) {
-		cec17_init("ARO", funcid, dim);
+		cec17_init("memeticARO", funcid, dim);
 		int evals = 0;
 		
 		//cerr <<"Warning: output by console, if you want to create the output file you have to comment cec17_print_output()" <<endl;
