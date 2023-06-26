@@ -6,4 +6,6 @@ version				mutation															crossover								other
 3						norm_dist 0 33.3												random arithmetic
 4 						chaotic (ICMIC) + exploration regulation				random arithmetic	
 5 						chaotic (ICMIC) + exploration regulation				chaotic arithmetic (ICMIC)			comparison of larva and bud	
+6 						chaotic (ICMIC) + exploration regulation				chaotic arithmetic (ICMIC)			50 individuals, different replacement methods
+7						chaotic (ICMIC) + exploration regulation				chaotic arithmetic (ICMIC)			memetic hybridization, ARO as LS
 
