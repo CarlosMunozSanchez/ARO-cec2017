@@ -28,14 +28,14 @@ std::uniform_real_distribution<> dis(lowerBound, upperBound);
 std::normal_distribution<double> norm_dist(0.0, 33.3);
 
 int seed = 42;
-int dim = 10;
+int dim = 50;
 
 //init. seed
 std::mt19937 gen(seed); 
 
 
 // Mutation as the the sum of values following a normal distribution
-
+/*
 void Mutate(vector<double> & v){
 	// a random number following a normal distribution is added to every component
 	for(int i = 0; i < dim; i++){
@@ -50,11 +50,11 @@ void Mutate(vector<double> & v){
 		}
 	}
 }
-
+*/
 
 
 // Mutation with chaotic sequences for exploration and exploitation
-/*
+
 void Mutate(vector<double> & v){
 
 	// variable for chaotic sequence
@@ -93,10 +93,11 @@ void Mutate(vector<double> & v){
 	
 	iter = (iter + 1) % (10000 * dim);
 }
-*/
+
 
 //Crossover as random selection from parent and larva
-/*void Combine(const vector<double> & parent, vector<double> & larva){
+/*
+void Combine(const vector<double> & parent, vector<double> & larva){
 	// larva's components are randomly taken from parent with 50% probability
 	for(int i = 0; i < dim; i++){
 		if( Random::get<bool>() ){
@@ -107,7 +108,8 @@ void Mutate(vector<double> & v){
 */
 
 //Crossover as BLX-alpha crossover operator
-/*void Combine(const vector<double> & parent, vector<double> & larva){
+/*
+void Combine(const vector<double> & parent, vector<double> & larva){
 	double alpha = 0.3;
 	
 	for(int i = 0; i < dim; i++){
@@ -121,6 +123,7 @@ void Mutate(vector<double> & v){
 }*/
 
 //Crossover as random arithmetic crossover operator
+/*
 void Combine(const vector<double> & parent, vector<double> & larva){
 	double alpha = Random::get(0.0, 1.0);
 	
@@ -128,11 +131,10 @@ void Combine(const vector<double> & parent, vector<double> & larva){
 		larva[i] = parent[i] * alpha + (1-alpha)*larva[i];
 	}
 		
-}
-
+}*/
 
 //Crossover as chaotic aritmetic operator
-/*
+
 void Combine(const vector<double> & parent, vector<double> & larva){
 	//variable for chaotic sequence
 	static double alpha = Random::get(-1.0, 1.0);
@@ -142,7 +144,7 @@ void Combine(const vector<double> & parent, vector<double> & larva){
 		larva[i] = parent[i] * alpha + (1-alpha)*larva[i];
 	}
 		
-}*/
+}
 
 
 pair<vector<double>, vector<double>> Reproduce(const vector<double> & parent){
@@ -205,8 +207,6 @@ int main() {
 				fitness = fit_bud;
 				parent = result.second;
 			}
-			
-			
 		}
 
 		cout <<"Best ARO[F" <<funcid <<"]: " << scientific <<cec17_error(fitness) <<endl;

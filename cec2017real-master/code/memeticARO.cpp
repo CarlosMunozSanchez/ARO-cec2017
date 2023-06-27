@@ -97,15 +97,15 @@ void Mutate(vector<double> & v){
 
 
 //Crossover as random selection from parent and larva
-/*void Combine(const vector<double> & parent, vector<double> & larva){
+/*
+void Combine(const vector<double> & parent, vector<double> & larva){
 	// larva's components are randomly taken from parent with 50% probability
 	for(int i = 0; i < dim; i++){
 		if( Random::get<bool>() ){
 			larva[i] = parent[i];
 		}
 	}
-}
-*/
+}*/
 
 //Crossover as BLX-alpha crossover operator
 /*void Combine(const vector<double> & parent, vector<double> & larva){
@@ -133,6 +133,7 @@ void Mutate(vector<double> & v){
 */
 
 // Crossover as chaotic arithmetic operator
+
 void Combine(const vector<double> & parent, vector<double> & larva){
 	//variable for chaotic sequence
 	static double alpha = Random::get(-1.0, 1.0);

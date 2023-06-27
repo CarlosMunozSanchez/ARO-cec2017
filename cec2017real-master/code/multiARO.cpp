@@ -50,11 +50,12 @@ void Mutate(vector<double> & v){
 			v[i] = lowerBound;
 		}
 	}
-}
-*/
+}*/
+
 
 
 // Mutation with chaotic sequences for exploration and exploitation
+
 void Mutate(vector<double> & v){
 
 	// variable for chaotic sequence
@@ -94,17 +95,16 @@ void Mutate(vector<double> & v){
 	iter = (iter + 1) % (10000 * dim);
 }
 
-
 //Crossover as random selection from parent and larva
-/*void Combine(const vector<double> & parent, vector<double> & larva){
+/*
+void Combine(const vector<double> & parent, vector<double> & larva){
 	// larva's components are randomly taken from parent with 50% probability
 	for(int i = 0; i < dim; i++){
 		if( Random::get<bool>() ){
 			larva[i] = parent[i];
 		}
 	}
-}
-*/
+}*/
 
 //Crossover as BLX-alpha crossover operator
 /*void Combine(const vector<double> & parent, vector<double> & larva){
@@ -132,6 +132,7 @@ void Mutate(vector<double> & v){
 */
 
 //Crossover as chaotic aritmetic operator
+
 void Combine(const vector<double> & parent, vector<double> & larva){
 	//variable for chaotic sequence
 	static double alpha = Random::get(-1.0, 1.0);
