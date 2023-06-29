@@ -29,14 +29,14 @@ std::uniform_real_distribution<> dis(lowerBound, upperBound);
 std::normal_distribution<double> norm_dist(0.0, 33.3);
 
 int seed = 42;
-int dim = 10;
+int dim = 50;
 
 //init. seed
 std::mt19937 gen(seed); 
 
 
 // Mutation as the the sum of values following a normal distribution
-/*
+
 void Mutate(vector<double> & v){
 	// a random number following a normal distribution is added to every component
 	for(int i = 0; i < dim; i++){
@@ -51,11 +51,10 @@ void Mutate(vector<double> & v){
 		}
 	}
 }
-*/
 
 
 // Mutation with chaotic sequences for exploration and exploitation
-
+/*
 void Mutate(vector<double> & v){
 
 	// variable for chaotic sequence
@@ -94,7 +93,7 @@ void Mutate(vector<double> & v){
 	
 	iter = (iter + 1) % (10000 * dim);
 }
-
+*/
 
 //Crossover as random selection from parent and larva
 /*

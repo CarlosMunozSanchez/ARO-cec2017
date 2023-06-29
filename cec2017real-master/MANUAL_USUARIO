@@ -1,0 +1,4 @@
+dentro de la carpeta code se encuentran todos los ficheros necesarios para la ejecución del software. 
+los archivos fuente implementados son ARO.cpp (ARO básico) memeticARO.cpp (versión memética) y multiARO.cpp
+para ejecutar cualquier versión, hay que abrir una terminal dentro de la carpeta code y ejecutar cmake . , make y luego ejecutar cualquiera de los ejecutbales generados.
+Se puede cambiar la dimensión de las funciones modificando el valor de la variable dim en cualquiera de los archivos fuente.
